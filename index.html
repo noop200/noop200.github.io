@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wähle eine Aufgabe :)</title>
+    <title>Informatik+</title>
     <style>
-        /* Grundstil für den gesamten Body */
         body {
             font-family: 'Arial', sans-serif;
             background-color: #f0f8ff;
@@ -15,9 +14,9 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            position: relative;
         }
 
-        /* Stil des Containers, der den Inhalt zentriert */
         .container {
             text-align: center;
             background-color: #ffffff;
@@ -28,46 +27,49 @@
             width: 100%;
         }
 
-        /* Titel-Styling */
-        h3 {
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
+        h1 {
+            font-size: 36px;
+            color: #007bff;
+            margin-bottom: 30px;
+            font-weight: bold;
         }
 
-        /* Stil der Liste der Links */
         ul {
             list-style-type: none;
             padding: 0;
         }
 
         li {
-            margin: 10px 0;
+            margin: 20px 0; /* Größerer Abstand zwischen den Buttons */
         }
 
-        /* Styling für die Links */
         a {
             text-decoration: none;
             color: #007bff;
             font-size: 18px;
-            padding: 10px 20px;
+            padding: 15px 25px;
             border: 2px solid #007bff;
             border-radius: 25px;
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Hover-Effekt für die Links */
         a:hover {
             background-color: #007bff;
             color: #fff;
         }
 
-        /* Fehler-Link extra auffällig machen */
         .error {
             color: red;
         }
 
-        /* Medienabfragen für kleinere Bildschirme */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
@@ -75,7 +77,11 @@
 
             a {
                 font-size: 16px;
-                padding: 8px 15px;
+                padding: 10px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
             }
         }
     </style>
@@ -83,7 +89,7 @@
 <body>
 
     <div class="container">
-        <h3>Meine Aufgaben</h3>
+        <h1>Informatik+</h1>
         <ul>
             <li><a href="https://noop200.github.io/Aufgabe%203.html" target="_blank">Aufgabe 3</a></li>
             <li><a href="https://noop200.github.io/Aufgabe%204.html" target="_blank">Aufgabe 4</a></li>
@@ -92,6 +98,10 @@
             <li><a href="https://noop200.github.io/Aufgabe%207.html" target="_blank">Aufgabe 7</a></li>
             <li><a href="https://noop200.github.io/Aufgabe%203.html" target="_blank" class="error">Fehler: {error}</a></li>
         </ul>
+    </div>
+    
+    <div class="footer">
+        Timo Granegger
     </div>
 
 </body>
