@@ -1,20 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wähle eine Aufgabe :)</title>
+    <style>
+        /* Grundstil für den gesamten Body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Stil des Containers, der den Inhalt zentriert */
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Titel-Styling */
+        h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Stil der Liste der Links */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        /* Styling für die Links */
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: 2px solid #007bff;
+            border-radius: 25px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Hover-Effekt für die Links */
+        a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* Fehler-Link extra auffällig machen */
+        .error {
+            color: red;
+        }
+
+        /* Medienabfragen für kleinere Bildschirme */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            a {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <h3>Meine Aufgaben</h3>
-    <ul>
-        <li><a href="https://noop200.github.io/Aufgabe%203.html" target="_blank">Aufgabe 3</a></li>
-        <li><a href="https://noop200.github.io/Aufgabe%204.html" target="_blank">Aufgabe 4</a></li>
-        <li><a href="https://noop200.github.io/Aufgabe%205.html" target="_blank">Aufgabe 5</a></li>
-        <li><a href="https://noop200.github.io/Aufgabe%206.html" target="_blank">Aufgabe 6</a></li>
-        <li><a href="https://noop200.github.io/notexisting.html" target="_blank">Aufgabe 7</a></li>
-        <li><a href="https://noop200.github.io/notexisting.html" target="_blank">{error}</a></li>
-    </ul>
+    <div class="container">
+        <h3>Meine Aufgaben</h3>
+        <ul>
+            <li><a href="https://noop200.github.io/Aufgabe%203.html" target="_blank">Aufgabe 3</a></li>
+            <li><a href="https://noop200.github.io/Aufgabe%204.html" target="_blank">Aufgabe 4</a></li>
+            <li><a href="https://noop200.github.io/Aufgabe%205.html" target="_blank">Aufgabe 5</a></li>
+            <li><a href="https://noop200.github.io/Aufgabe%206.html" target="_blank">Aufgabe 6</a></li>
+            <li><a href="https://noop200.github.io/Aufgabe%207.html" target="_blank">Aufgabe 7</a></li>
+            <li><a href="https://noop200.github.io/Aufgabe%203.html" target="_blank" class="error">Fehler: {error}</a></li>
+        </ul>
+    </div>
 
 </body>
 </html>
