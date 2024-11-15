@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Burgerladen</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #d49c24;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .ingredient {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .ingredient button {
+            padding: 5px 10px;
+            font-size: 14px;
+            border: none;
+            background-color: #d49c24;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .ingredient button:hover {
+            background-color: #28a745;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li button {
+            padding: 5px;
+            font-size: 12px;
+            border: none;
+            background-color: #ff4c4c;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li button:hover {
+            background-color: #d32f2f;
+        }
+
+        .order-section {
+            margin-top: 20px;
+        }
+
+        .order-section input, .order-section select {
+            margin: 10px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: calc(100% - 20px);
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .order-button {
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .order-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mein Burgerladen</h1>
+        <div id="ingredients">
+            <div class="ingredient">
+                <span>Salat</span>
+                <button onclick="addIngredient('Salat')">Hinzufügen</button>
+            </div>
+            <div class="ingredient">
+                <span>Käse</span>
+                <button onclick="addIngredient('Käse')">Hinzufügen</button>
+            </div>
+            <div class="ingredient">
+                <span>Speck</span>
+                <button onclick="addIngredient('Speck')">Hinzufügen</button>
+            </div>
+            <div class="ingredient">
+                <span>Tomate</span>
+                <button onclick="addIngredient('Tomate')">Hinzufügen</button>
+            </div>
+            <div class="ingredient">
+                <span>Zwiebeln</span>
+                <button onclick="addIngredient('Zwiebeln')">Hinzufügen</button>
+            </div>
+            <div class="ingredient">
+                <span>Gurken</span>
+                <button onclick="addIngredient('Gurken')">Hinzufügen</button>
+            </div>
+        </div>
+        <h3>Dein Burger:</h3>
+        <ul id="burger-list">
+            <!-- Standardzutaten -->
+            <li>Brötchen <button onclick="removeIngredient(this)">Entfernen</button></li>
+            <li>Patty <button onclick="removeIngredient(this)">Entfernen</button></li>
+            <li>Käse <button onclick="removeIngredient(this)">Entfernen</button></li>
+            <li>Salat <button onclick="removeIngredient(this)">Entfernen</button></li>
+        </ul>
+
+        <div class="order-section">
+            <input type="text" id="customer-name" placeholder="Dein Name" />
+            <select id="patty-size">
+                <option value="100g">100g Patty</option>
+                <option value="150g">150g Patty</option>
+                <option value="200g">200g Patty</option>
+                <option value="250g">250g Patty</option>
+            </select>
+            <button class="order-button" onclick="placeOrder()">Bestellen</button>
+        </div>
+    </div>
+
+    <script>
+        const burgerList = document.getElementById('burger-list');
+
+        function addIngredient(name) {
+            // Füge eine neue Zutat hinzu
+            const li = document.createElement('li');
+            li.textContent = name;
+
+            // Entfernen-Button hinzufügen
+            const removeButton = document.createElement('button');
+            removeButton.textContent = "Entfernen";
+            removeButton.onclick = function () {
+                burgerList.removeChild(li); // Zutat entfernen
+            };
+            li.appendChild(removeButton);
+
+            burgerList.appendChild(li);
+        }
+
+        function removeIngredient(button) {
+            // Entferne die Zutat aus der Liste
+            const li = button.parentNode;
+            burgerList.removeChild(li);
+        }
+
+        function placeOrder() {
+            const name = document.getElementById('customer-name').value;
+            const pattySize = document.getElementById('patty-size').value;
+
+            if (!name) {
+                alert("Bitte gib deinen Namen ein!");
+                return;
+            }
+
+            const ingredients = Array.from(burgerList.children).map(li => li.textContent.replace("Entfernen", "").trim());
+            alert(`Vielen Dank, ${name}! Dein Burger mit einem ${pattySize}-Patty und den Zutaten ${ingredients.join(", ")} wird zubereitet.`);
+        }
+    </script>
+</body>
+</html>
