@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Stacked & Loaded Reservierungsseite</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #d49c24;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Reservierung</h1>
+        <form onsubmit="handleReservation(event)">
+            <!-- Name -->
+            <input type="text" id="name" placeholder="Dein Name" required>
+
+            <!-- Datum -->
+            <input type="date" id="date" required>
+
+            <!-- Uhrzeit -->
+            <input type="time" id="time" required>
+
+            <!-- Anzahl Personen -->
+            <select id="people" required>
+                <option value="">Personenanzahl</option>
+                <option value="1">1 Person</option>
+                <option value="2">2 Personen</option>
+                <option value="3">3 Personen</option>
+                <option value="4">4 Personen</option>
+                <option value="5">5 Personen</option>
+                <option value="6">6 Personen</option>
+                <option value="7">7 Personen</option>
+                <option value="8">8 Personen</option>
+            </select>
+
+            <!-- Absenden-Button -->
+            <button type="submit">Reservieren</button>
+        </form>
+    </div>
+
+    <script>
+        function handleReservation(event) {
+            event.preventDefault(); // Verhindert, dass die Seite neu lädt
+
+            // Werte der Eingabefelder auslesen
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const people = document.getElementById('people').value;
+
+            // Zeige eine Bestätigungsmeldung
+            alert(`Vielen Dank, ${name}! Deine Reservierung für ${people} Personen am ${date} um ${time} wurde erfolgreich aufgenommen.`);
+        }
+    </script>
+</body>
+</html>
